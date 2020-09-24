@@ -4,11 +4,12 @@ from state import DecodeTokenState
 from flask import request, jsonify
 from functools import wraps
 from schema import User
+from constant import SECRET_KEY
 
 
 class TokenMachine(object):
-    def __init__(self, secret_key="hello world"):
-        self.secret_key = "hello world"
+    def __init__(self, secret_key=SECRET_KEY):
+        self.secret_key = secret_key
         self.current_auth_user = None
         self.payload = None
 
